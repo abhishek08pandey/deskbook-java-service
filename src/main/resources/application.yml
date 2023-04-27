@@ -8,13 +8,13 @@ spring:
           audiences: DeskBookApi
 
 server:
-   port: 8443
+   port: 9443
    ssl: 
      enabled: true
      key-store-type: PKCS12
-     key-store: file:C:\\deskbook-userapi\\deskbook-userapi-dev.1rivet.com.p12
+     key-store: file:C:\\deskbook-userapi\\deskbook.p12
      key-store-password: admin
-     key-alias: deskbook-userapi-dev.1rivet.com
+     key-alias: dev-deskbook-userapi.1rivet.com
 
           
           
