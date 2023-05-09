@@ -11,4 +11,6 @@ public interface EmployeeService {
 
 	public EmployeeDto getEmployeeById(int id);
 	
+	public EmployeeDto update(EmployeeDto employeeDto);
+	
 }

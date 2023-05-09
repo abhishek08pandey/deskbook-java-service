@@ -23,7 +23,7 @@ public class SecurityConfig {
 		  .cors()
 		.and()
 		  .authorizeHttpRequests( 
-				  (authorize) -> authorize.requestMatchers("/api/deskbook/**").permitAll()
+				  (authorize) -> authorize.requestMatchers("/api/**").permitAll()
 				  .anyRequest().authenticated()
 				  )
 		  .oauth2ResourceServer().jwt();

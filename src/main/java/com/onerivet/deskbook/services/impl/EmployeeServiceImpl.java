@@ -22,7 +22,6 @@ public class EmployeeServiceImpl implements EmployeeService {
 	@Autowired
 	private EmployeeRepo employeeRepo;
 
-
 	@Autowired
 	private ModelMapper modelMapper;
 
@@ -37,6 +36,34 @@ public class EmployeeServiceImpl implements EmployeeService {
 		Employee employee = this.employeeRepo.findById(id)
 				.orElseThrow(() -> new ResorceNotFoundException("Employee with id " + id + " not found."));
 		return this.modelMapper.map(employee, EmployeeDto.class);
+	}
+
+	@Override
+	public EmployeeDto update(EmployeeDto employeeDto) {
+
+		EmployeeDto presentEmployee = getEmployeeById(employeeDto.getId());
+
+		if (presentEmployee != null) {
+			presentEmployee.setPhoneNumber(employeeDto.getPhoneNumber());
+			presentEmployee.setDesignation(employeeDto.getDesignation());
+			presentEmployee.setProject(employeeDto.getProject());
+			presentEmployee.setModeOfWork(employeeDto.getModeOfWork());
+			
+			presentEmployee.setWorkingDays(employeeDto.getWorkingDays());
+//			if (presentEmployee.getModeOfWork().equals(1)) { // Hybrid
+//				
+//				presentEmployee.setWorkingDays(employeeDto.getWorkingDays());
+//				presentEmployee.setse
+//			}
+			
+			Employee save = employeeRepo.save(modelMapper.map(presentEmployee, Employee.class));
+
+			if(save!= null) {
+				return modelMapper.map(save, EmployeeDto.class);
+			}
+		}
+
+		return employeeDto;
 	}
 
 }

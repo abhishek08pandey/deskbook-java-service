@@ -5,11 +5,15 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.onerivet.deskbook.models.payload.EmployeeDto;
+import com.onerivet.deskbook.models.payload.ModeOfWorkDto;
 import com.onerivet.deskbook.services.EmployeeService;
+import com.onerivet.deskbook.services.ModeOfWorkService;
 
 
 @RestController
@@ -49,4 +53,8 @@ public class DeskBookController {
 		return this.employeeService.getEmployeeById(id);
 	}
 	
+//	@PutMapping("/update")
+//	public EmployeeDto update(@RequestBody EmployeeDto employeeDto) {
+//		return employeeService.update(employeeDto);
+//	}
 }
