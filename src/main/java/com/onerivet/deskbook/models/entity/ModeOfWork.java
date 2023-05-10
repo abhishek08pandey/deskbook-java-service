@@ -13,7 +13,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
+@Entity 
 @Table(name = "[ModeOfWork]", schema = "[Ref]")
 public class ModeOfWork {
 	@Id

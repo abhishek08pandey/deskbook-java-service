@@ -18,7 +18,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@NoArgsConstructor
+@NoArgsConstructor 
 @AllArgsConstructor
 @Entity
 @Table(name = "[Employee]", schema = "[dbo]")
@@ -59,9 +59,9 @@ public class Employee {
 	@JoinColumn(name = "DesignationId")
 	private Designation designation;
 	
-	@OneToOne(cascade = CascadeType.ALL, mappedBy = "employee")
-	private SeatConfiguration seatConfiguration;
-	
+//	@OneToOne(cascade = CascadeType.ALL, mappedBy = "employee")
+//	private SeatConfiguration seatConfiguration;
+//	
 
 	@ManyToMany
 	@JoinTable(name = "[EmployeeRole]", schema = "[dbo]", joinColumns = @JoinColumn(name = "EmployeeId"), inverseJoinColumns = @JoinColumn(name = "RoleId"))
@@ -77,7 +77,7 @@ public class Employee {
 	public Employee(int id, String userId, String emailId, String firstName, String lastName) {
 		super();
 		this.id = id;
-		this.userId = userId;
+		this.userId = userId; 
 		this.emailId = emailId;
 		this.firstName = firstName;
 		this.lastName = lastName;

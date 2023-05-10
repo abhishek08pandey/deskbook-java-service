@@ -7,18 +7,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.onerivet.deskbook.models.payload.ModeOfWorkDto;
-import com.onerivet.deskbook.services.ModeOfWorkService;
+import com.onerivet.deskbook.models.payload.CityDto;
+import com.onerivet.deskbook.services.CityService;
+
 
 @RestController
 @RequestMapping("/api/deskbook")
-public class ModeOfWorkController {
-
+public class CityController {
+	
 	@Autowired
-	private ModeOfWorkService modeOfWorkService;
+	private CityService cityService;
 	 
-	@GetMapping("/mode-of-work")
-	public List<ModeOfWorkDto> findAllModeOfWork() {
-		return modeOfWorkService.findAllModeOfWork();
+	@GetMapping("/get-all-city")
+	public List<CityDto> findAllCity(){
+		return cityService.findAllCity();
 	}
 }

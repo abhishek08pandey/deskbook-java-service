@@ -12,26 +12,27 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.onerivet.deskbook.models.payload.EmployeeDto;
 import com.onerivet.deskbook.models.payload.ModeOfWorkDto;
+import com.onerivet.deskbook.models.payload.UpdateProfileDto;
 import com.onerivet.deskbook.services.EmployeeService;
 import com.onerivet.deskbook.services.ModeOfWorkService;
 
-
+ 
 @RestController
 @RequestMapping("/api/deskbook")
 public class DeskBookController {
 	
+	@Autowired		
+	private EmployeeService employeeService;
+	
 	@GetMapping
 	public Object test() {
 		
-		return """
+		return """ 
 				{
 				  "message":"this a deskbook api"
 				}
 				""";
 	}
-	
-	@Autowired		
-	private EmployeeService employeeService;
 	
 	/**
 	 * @purpose: Get all employees
@@ -44,7 +45,7 @@ public class DeskBookController {
 	
 	
 	/**
-	 * @purpose: Get employee by id
+	 * @purpose: Get employee by id 
 	 * @param: id
 	 * @return: employeeDto
 	 */
@@ -53,8 +54,8 @@ public class DeskBookController {
 		return this.employeeService.getEmployeeById(id);
 	}
 	
-//	@PutMapping("/update")
-//	public EmployeeDto update(@RequestBody EmployeeDto employeeDto) {
-//		return employeeService.update(employeeDto);
-//	}
+	@PutMapping("/update/{id}")
+	public String update(@PathVariable("id") int id, @RequestBody UpdateProfileDto employeeDto) {
+		return employeeService.update(id,employeeDto);
+	}
 }

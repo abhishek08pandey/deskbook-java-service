@@ -3,6 +3,7 @@ package com.onerivet.deskbook.services;
 import java.util.List;
 
 import com.onerivet.deskbook.models.payload.EmployeeDto;
+import com.onerivet.deskbook.models.payload.UpdateProfileDto;
 
 
 public interface EmployeeService {
@@ -11,6 +12,6 @@ public interface EmployeeService {
 
 	public EmployeeDto getEmployeeById(int id);
 	
-	public EmployeeDto update(EmployeeDto employeeDto);
+	public String update(int id,UpdateProfileDto employeeDto);
 	
 }

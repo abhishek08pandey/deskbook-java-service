@@ -21,14 +21,7 @@ public class ModeOfWorkServiceImpl implements ModeOfWorkService {
 	private ModelMapper modelMapper;
 	
 	@Override
-	public List<ModeOfWorkDto> findModeOfWork() {
+	public List<ModeOfWorkDto> findAllModeOfWork() {
 		return modeOfWorkRepo.findAll().stream().map((modeOfWork)->this.modelMapper.map(modeOfWork, ModeOfWorkDto.class)).collect(Collectors.toList());
 	}
-
-	@Override
-	public List<Integer> findAllId() {
-		return modeOfWorkRepo.findAllId();
-	}
-
-	
 }

@@ -26,5 +26,13 @@ server:
 #     key-store-password: admin
 #     key-alias: dev-deskbook-userapi.1rivet.com
 
+# Cors Configuration
+web:
+  cors:
+    allowed-origins: "http://localhost:4200"
+    allowed-methods: GET,PUT,
+    allowed-headers: "Requestor-Type"
+    exposed-headers: "X-Get-Header"
+
           
           

@@ -12,7 +12,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @AllArgsConstructor
-@NoArgsConstructor
+@NoArgsConstructor 
 @Entity
 @Table(name = "[Column]", schema = "[Ref]")
 public class ColumnDetails {

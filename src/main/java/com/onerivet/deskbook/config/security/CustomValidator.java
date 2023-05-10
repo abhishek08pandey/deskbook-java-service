@@ -14,7 +14,7 @@ public class CustomValidator implements OAuth2TokenValidator<Jwt> {
 
 	public CustomValidator(List<String> audiences) {
 		this.audiences= audiences;
-	}
+	} 
 
 	@Override
 	public OAuth2TokenValidatorResult validate(Jwt jwt) {

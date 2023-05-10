@@ -10,7 +10,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ColumnDetailsDto {
-	private int id;
+	private int id; 
 
 	private char columnName;
 }

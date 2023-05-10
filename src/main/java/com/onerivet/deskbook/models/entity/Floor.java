@@ -13,7 +13,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
+@Entity 
 @Table(name = "[Floor]", schema = "[Ref]")
 public class Floor {
 	@Id

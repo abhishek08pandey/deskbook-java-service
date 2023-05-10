@@ -6,7 +6,6 @@ import com.onerivet.deskbook.models.payload.ModeOfWorkDto;
 
 public interface ModeOfWorkService {
 
-	public List<ModeOfWorkDto> findModeOfWork();
+	public List<ModeOfWorkDto> findAllModeOfWork();
 	
-	public List<Integer> findAllId();
 }

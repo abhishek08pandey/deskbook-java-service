@@ -16,7 +16,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @AllArgsConstructor
-@NoArgsConstructor
+@NoArgsConstructor  
 @Entity
 @Table(name = "[SeatConfiguration]", schema = "[dbo]")
 public class SeatConfiguration {
