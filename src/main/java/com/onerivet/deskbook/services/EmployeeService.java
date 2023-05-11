@@ -12,6 +12,6 @@ public interface EmployeeService {
 
 	public EmployeeDto getEmployeeById(int id);
 	
-	public String update(int id,UpdateProfileDto employeeDto);
+	public EmployeeDto update(int id,UpdateProfileDto employeeDto);
 	
 }

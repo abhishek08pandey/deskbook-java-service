@@ -55,7 +55,11 @@ public class DeskBookController {
 	}
 	
 	@PutMapping("/update/{id}")
-	public String update(@PathVariable("id") int id, @RequestBody UpdateProfileDto employeeDto) {
+	public EmployeeDto update(@PathVariable("id") int id, @RequestBody UpdateProfileDto employeeDto) {
+		
+		System.out.println(employeeDto.getFirstName());
+		System.out.println(employeeDto.getLastName());
+		
 		return employeeService.update(id,employeeDto);
 	}
 }

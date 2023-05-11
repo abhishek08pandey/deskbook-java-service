@@ -22,4 +22,6 @@ public class Designation {
 	
 	@Column(name = "DesignationName")
 	private String designationName;
+	
+	
 }

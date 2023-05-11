@@ -59,10 +59,13 @@ public class Employee {
 	@JoinColumn(name = "DesignationId")
 	private Designation designation;
 	
-//	@OneToOne(cascade = CascadeType.ALL, mappedBy = "employee")
-//	private SeatConfiguration seatConfiguration;
-//	
-
+	@OneToOne
+	@JoinColumn(name = "ModifiedBy")
+	private Employee modifiedBy;
+	
+	@Column(name = "isActive")
+	private boolean active;
+	
 	@ManyToMany
 	@JoinTable(name = "[EmployeeRole]", schema = "[dbo]", joinColumns = @JoinColumn(name = "EmployeeId"), inverseJoinColumns = @JoinColumn(name = "RoleId"))
 	private Set<Role> roles;
@@ -71,16 +74,5 @@ public class Employee {
 	@JoinTable(name = "[EmployeeWorkingDays]", schema = "[dbo]", joinColumns = @JoinColumn(name = "EmployeeId"), inverseJoinColumns = @JoinColumn(name = "WorkingDayId"))
 	private Set<WorkingDay> workingDays;
 	
-	@Column(name = "isActive")
-	private boolean active;
 	
-	public Employee(int id, String userId, String emailId, String firstName, String lastName) {
-		super();
-		this.id = id;
-		this.userId = userId; 
-		this.emailId = emailId;
-		this.firstName = firstName;
-		this.lastName = lastName;
-	}
-
 }
