@@ -19,17 +19,17 @@ public class SeatConfigurationController {
 	@Autowired
 	private SeatConfigurationService buildingService;
 	
-	@GetMapping("/get-all-Floors")
+	@GetMapping("/floors")
 	public List<FloorDto> findAllFloor(){
 		return buildingService.findAllFloor();
 	}
 	
-	@GetMapping("/get-all-columns")
+	@GetMapping("/columns")
 	public List<ColumnDetailsDto> findAllColumns(){
 		return buildingService.findAllColumns();
 	}
 	
-	@GetMapping("/get-all-seats")
+	@GetMapping("/seats")
 	public List<SeatNumberDto> findAllSeatNumber(){
 		return buildingService.findAllSeatNumber();
 	}

@@ -1,5 +1,6 @@
 package com.onerivet.deskbook.controllers;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.onerivet.deskbook.models.payload.EmployeeDto;
 import com.onerivet.deskbook.models.payload.ModeOfWorkDto;
 import com.onerivet.deskbook.models.payload.UpdateProfileDto;
+import com.onerivet.deskbook.models.response.GenericResponse;
 import com.onerivet.deskbook.services.EmployeeService;
 import com.onerivet.deskbook.services.ModeOfWorkService;
+
+import jakarta.validation.Valid;
 
  
 @RestController
@@ -38,28 +42,26 @@ public class DeskBookController {
 	 * @purpose: Get all employees
 	 * @return: List of employeeDto
 	 */
-	@GetMapping("/get-all-employees")
-	public List<EmployeeDto> getAll() {
-		return this.employeeService.getAllEmployees();
+	@GetMapping("/employees")
+	public GenericResponse<List<EmployeeDto>> getAll() {
+		
+		List<EmployeeDto> employeeDto = employeeService.getAllEmployees();
+		 return new GenericResponse<>(employeeDto, null);
 	}
-	
 	
 	/**
 	 * @purpose: Get employee by id 
 	 * @param: id
 	 * @return: employeeDto
 	 */
-	@GetMapping("/{id}")
-	public EmployeeDto getById(@PathVariable("id") int id) {
-		return this.employeeService.getEmployeeById(id);
+	@GetMapping("/{employeeId}")
+	public GenericResponse<EmployeeDto> getById(@PathVariable("employeeId") String employeeId) {
+		return new GenericResponse<EmployeeDto>(employeeService.findByEmployeeId(employeeId), null);
 	}
 	
-	@PutMapping("/update/{id}")
-	public EmployeeDto update(@PathVariable("id") int id, @RequestBody UpdateProfileDto employeeDto) {
+	@PutMapping("/update/{employeeId}")
+	public EmployeeDto update(@PathVariable("employeeId") String employeeId, @Valid @RequestBody UpdateProfileDto employeeDto) throws IOException {
 		
-		System.out.println(employeeDto.getFirstName());
-		System.out.println(employeeDto.getLastName());
-		
-		return employeeService.update(id,employeeDto);
+		return employeeService.update(employeeId, employeeDto);
 	}
 }

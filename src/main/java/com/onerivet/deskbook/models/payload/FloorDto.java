@@ -13,4 +13,6 @@ public class FloorDto {
 	private int id;
 
 	private String floorName;
+	
+	private CityDto city;
 }

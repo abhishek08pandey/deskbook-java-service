@@ -7,7 +7,7 @@ spring:
           jwkSeturi: https://1authority-interns.1rivet.com:5004/.well-known/openid-configuration/jwks
           audiences: DeskBookApi
   datasource:
-    url: jdbc:sqlserver://localhost:1433;databaseName=DeskBookDev;encrypt=true;trustServerCertificate=true
+    url: jdbc:sqlserver://localhost:1433;databaseName=08DeskBookDev;encrypt=true;trustServerCertificate=true
     username: sa
     password: Admin@123
   jpa:

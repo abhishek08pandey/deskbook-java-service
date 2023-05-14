@@ -23,4 +23,11 @@ public class GlobalExceptionHandler extends RuntimeException {
 	
 		 return new ResponseEntity<ErrorMessageResponse>(response, HttpStatus.NOT_FOUND);
 	}
+	
+	@ExceptionHandler(InvalidInputException.class)
+	public ResponseEntity<ErrorMessageResponse> invalidInputExceptionHandler(InvalidInputException exception) {
+		 ErrorMessageResponse response = new ErrorMessageResponse(LocalDateTime.now(), exception.getMessage());
+	
+		 return new ResponseEntity<ErrorMessageResponse>(response, HttpStatus.BAD_REQUEST);
+	}
 }

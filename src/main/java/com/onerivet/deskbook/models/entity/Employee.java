@@ -1,8 +1,8 @@
 package com.onerivet.deskbook.models.entity;
 
+import java.time.LocalDate;
 import java.util.Set;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -21,14 +21,11 @@ import lombok.Setter;
 @NoArgsConstructor 
 @AllArgsConstructor
 @Entity
-@Table(name = "[Employee]", schema = "[dbo]")
+@Table(name = "Employee", schema = "[dbo]")
 public class Employee {
 	@Id
 	@Column(name = "EmployeeId")
-	private int id;
-
-	@Column(name = "UserId")
-	private String userId;
+	private String id;
 
 	@Column(name = "EmailId")
 	private String emailId;
@@ -45,6 +42,10 @@ public class Employee {
 	@Column(name = "ProjectName")
 	private String project;
 	
+	@OneToOne
+	@JoinColumn(name = "ModeOfWorkId")
+	private ModeOfWork modeOfWork;
+	
 	@Column(name = "ProfilePictureFileName")
 	private String profilePictureFileName;
 	
@@ -52,12 +53,11 @@ public class Employee {
 	private String profilePictureFilePath;
 
 	@OneToOne
-	@JoinColumn(name = "ModeOfWorkId")
-	private ModeOfWork modeOfWork;
-
-	@OneToOne
 	@JoinColumn(name = "DesignationId")
 	private Designation designation;
+	
+	@Column(name = "ModifiedDate")
+	private LocalDate modifiedDate;
 	
 	@OneToOne
 	@JoinColumn(name = "ModifiedBy")
@@ -66,13 +66,13 @@ public class Employee {
 	@Column(name = "isActive")
 	private boolean active;
 	
-	@ManyToMany
-	@JoinTable(name = "[EmployeeRole]", schema = "[dbo]", joinColumns = @JoinColumn(name = "EmployeeId"), inverseJoinColumns = @JoinColumn(name = "RoleId"))
-	private Set<Role> roles;
+//	@ManyToMany
+//	@JoinTable(name = "[EmployeeRole]", schema = "[dbo]", joinColumns = @JoinColumn(name = "EmployeeId"), inverseJoinColumns = @JoinColumn(name = "RoleId"))
+//	private Set<Role> roles;
 
-	@ManyToMany
-	@JoinTable(name = "[EmployeeWorkingDays]", schema = "[dbo]", joinColumns = @JoinColumn(name = "EmployeeId"), inverseJoinColumns = @JoinColumn(name = "WorkingDayId"))
-	private Set<WorkingDay> workingDays;
+//	@ManyToMany
+//	@JoinTable(name = "[EmployeeWorkingDays]", schema = "[dbo]", joinColumns = @JoinColumn(name = "EmployeeId"), inverseJoinColumns = @JoinColumn(name = "WorkingDayId"))
+//	private Set<WorkingDay> workingDays;
 	
 	
 }

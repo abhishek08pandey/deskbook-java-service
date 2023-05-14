@@ -12,11 +12,5 @@ import lombok.Setter;
 public class SeatConfigurationDto {
 	private int id;
 
-	private CityDto city;
-
-	private FloorDto floor;
-
-	private ColumnDetailsDto column;
-
 	private SeatNumberDto seatNumber;
 }

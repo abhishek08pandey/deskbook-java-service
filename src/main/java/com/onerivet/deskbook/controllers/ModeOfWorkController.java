@@ -17,7 +17,7 @@ public class ModeOfWorkController {
 	@Autowired
 	private ModeOfWorkService modeOfWorkService;
 	 
-	@GetMapping("/mode-of-work")
+	@GetMapping("/mode-of-works")
 	public List<ModeOfWorkDto> findAllModeOfWork() {
 		return modeOfWorkService.findAllModeOfWork();
 	}

@@ -1,5 +1,6 @@
 package com.onerivet.deskbook.services;
 
+import java.io.IOException;
 import java.util.List;
 
 import com.onerivet.deskbook.models.payload.EmployeeDto;
@@ -10,8 +11,8 @@ public interface EmployeeService {
 
 	public List<EmployeeDto> getAllEmployees();
 
-	public EmployeeDto getEmployeeById(int id);
+	public EmployeeDto findByEmployeeId(String employeeId);
 	
-	public EmployeeDto update(int id,UpdateProfileDto employeeDto);
+	public EmployeeDto update(String employeeId, UpdateProfileDto employeeDto) throws IOException;
 	
 }

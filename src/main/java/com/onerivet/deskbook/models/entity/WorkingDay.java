@@ -17,15 +17,10 @@ import lombok.Setter;
 @Table(name = "[WorkingDay]", schema = "[Ref]")
 public class WorkingDay {
 	@Id
-	@Column(name = "WorkingDayId")
+	@Column(name = "WorkingDayId")	
 	private int id;
 	
 	@Column(name = "Day")
 	private String day;
 
-	public WorkingDay(String day) {
-		super();
-		this.day = day;
-	}
-	
 }

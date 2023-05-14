@@ -1,6 +1,8 @@
 package com.onerivet.deskbook.models.entity;
 
 
+import java.time.LocalTime;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -27,35 +29,23 @@ public class SeatConfiguration {
 	@Column(name = "SeatConfigurationId")
 	private int id;
 	
-	@ManyToOne
-	@JoinColumn(name = "CityId")
-	private City city;
-	
-	@ManyToOne
-	@JoinColumn(name = "FloorId")
-	private Floor floor;
-	
-	@ManyToOne
-	@JoinColumn(name = "ColumnId")
-	private ColumnDetails column;
-	
 	@OneToOne
 	@JoinColumn(name = "SeatId")
 	private SeatNumber seatNumber;
 	
 	@OneToOne
-	@JoinColumn(name = "EmployeeId")
-	private Employee employee;
-	
-	@OneToOne
 	@JoinColumn(name = "CreatedBy")
 	private Employee createdBy;
+	
+	@Column(name = "ModifiedDate")
+	private LocalTime modifiedDate;
 	
 	@OneToOne
 	@JoinColumn(name = "ModifiedBy")
 	private Employee modifiedBy;
 	
-	@Column(name = "IsAvailable")
-	private boolean available;
+	@OneToOne
+	@JoinColumn(name = "EmployeeId")
+	private Employee employee;
 	
 }

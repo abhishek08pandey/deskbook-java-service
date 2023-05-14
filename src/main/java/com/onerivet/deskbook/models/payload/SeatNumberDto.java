@@ -14,5 +14,5 @@ public class SeatNumberDto {
 
 	private String seatNumber;
 	
-	private boolean booked;
+	private ColumnDetailsDto columnDetails;
 }

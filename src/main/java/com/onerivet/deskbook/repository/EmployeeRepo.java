@@ -7,5 +7,6 @@ import com.onerivet.deskbook.models.entity.Employee;
 
 public interface EmployeeRepo extends JpaRepository<Employee, Integer> {
 
+	public Employee findById(String employeeId);
 
 }

@@ -13,6 +13,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ErrorMessageResponse {
+	
 	private LocalDateTime timestamp;
 	private Object message;
 }

@@ -1,8 +1,5 @@
 package com.onerivet.deskbook.models.payload;
 
-import java.util.Set;
-
-import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
@@ -17,9 +14,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class EmployeeDto {
-	private int id;
-
-	private String userId;
+	private String id;
 
 	private String emailId;
 
@@ -46,22 +41,28 @@ public class EmployeeDto {
 	@Size(max = 200, message = "Project names cannot exceed 200 character")
 	private String project;
 	
-	
+//check @Valid
 	@NotNull(message = "Please select Mode of work")
 	private ModeOfWorkDto modeOfWork;
-
+	
+	@NotEmpty(message = "Please select Profile Picture")
+	private String profilePictureFileName;
+	
+	@NotEmpty(message = "Please select Profile Picture Path")
+	private String profilePictureFilePath;
 
 	@NotNull(message = "Please select designation")
 	private DesignationDto designation;
 
+	//private boolean active;
+	
+//	@NotNull(message = "Please select seatConfiguration")
+//	private SeatConfigurationDto seatConfiguration;
 
-	@NotNull(message = "Please select seatConfiguration")
-	private SeatConfigurationDto seatConfiguration;
+//	@NotEmpty(message = "Please select role")
+//	private Set<@Valid RoleDto> roles;
+//
+//	private Set<@Valid WorkingDayDto> workingDays;
 
-	@NotEmpty(message = "Please select role")
-	private Set<@Valid RoleDto> roles;
-
-	private Set<@Valid WorkingDayDto> workingDays;
-
-	private boolean active;
+	
 }

@@ -12,5 +12,7 @@ import lombok.Setter;
 public class ColumnDetailsDto {
 	private int id; 
 
-	private char columnName;
+	private String columnName;
+	
+	private FloorDto floor;
 }

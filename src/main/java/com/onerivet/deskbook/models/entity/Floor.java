@@ -3,6 +3,8 @@ package com.onerivet.deskbook.models.entity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,4 +24,8 @@ public class Floor {
 	
 	@Column(name = "FloorName")
 	private String floorName;
+	
+	@OneToOne
+	@JoinColumn(name = "CityID")
+	private City city;
 }
